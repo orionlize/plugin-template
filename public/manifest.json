@@ -3,29 +3,25 @@
   "version": "0.0.1",
   "manifest_version": 2,
   "description": "chrome集成React 开发插件",
-
   "page_action": {
     "default": "Chrome Plugin",
     "default_popup": "index.html"
   },
-
+  "background": {
+    "scripts": [
+      "./static/js/background.js"
+    ],
+    "persistent": false
+  },
   "content_scripts": [
     {
       "matches": [
         "<all_urls>"
       ],
-      "css": [],
       "js": [
-        "static/js/insert.js"
+        "./static/js/insert.js"
       ],
       "run_at": "document_end"
     }
-  ],
-
-  "background": {
-    "scripts": [
-      "static/js/background.js"
-    ],
-    "persistent": false
-  }
+  ]
 }

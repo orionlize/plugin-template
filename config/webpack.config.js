@@ -1,4 +1,5 @@
-
+// 自定义导入打包文件
+const webpackPath = require('../src/config.js')
 
 const fs = require('fs');
 const path = require('path');
@@ -190,8 +191,8 @@ module.exports = function (webpackEnv) {
             // changing JS code would still trigger a refresh.
           ].filter(Boolean),
           /* 添加文件路径 */
-          insert: paths.appSrc + '/insert/index.tsx',
-          background: paths.appSrc + '/background/index.ts'
+          ...webpackPath.background,
+          ...webpackPath.contentScripts,
         },
     output: {
       // The build folder.
