@@ -5,12 +5,15 @@ declare namespace chrome {
     }
   }
 
-  declare namespace declarativeContent {
-    declare namespace onPageChanged {
-      function removeRules(param: any, callback: Function)
-      function addRules(param: {conditions: any[], actions: any[]}[])
+  declare namespace tabs {
+    function query(param: {currentWindow: boolean, active: boolean}, callback?: (tabsArray: any[]) => void)
+    function getCurrent(callback: (tab: any) => void)
+    declare namespace onUpdated {
+      function addListener(listener: (tabId: number) =>void)
     }
-    class PageStateMatcher { constructor(match: any) }
-    class ShowPageAction {}
+  }
+
+  declare namespace pageAction {
+    function show(tabId: number, callback?: Function)
   }
 }

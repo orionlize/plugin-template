@@ -5,6 +5,7 @@
   "description": "chrome集成React 开发插件",
 
   "page_action": {
+    "default": "Chrome Plugin",
     "default_popup": "index.html"
   },
 
